@@ -1,3 +1,4 @@
+## NOTE: readability: leave some blank linkes between the code to make it more readable
 
 # a)
 xmin <- c(23.0, 20.5, 28.2, 20.3, 22.4, 17.2, 18.2)
@@ -12,15 +13,25 @@ avgMIN <- mean(xmin)
 
 # d)
 xmin [xmin < avgMIN]
+
 # e)
 xmin [xmax > avgMAX]
+
 # f)
+## NOTE: not DRY (don't repeate yourself). Assign the dates to a vector and
+## then use that vector to assign names to the elements of xmin and xmax
+
 names(xmin) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri' , 'Sat' , 'Sun')
 names(xmax) <- c('Mon', 'Tue', 'Wed', 'Thu', 'Fri' , 'Sat' , 'Sun')
 # g)
 temperature <- data.frame(xmin,xmax)
+
 # h)
-temperature <- within(temperature,{xminFahrenheit <- xmin*9/5 + 32})
+## NOTE: improve readability
+temperature <- within(temperature,{
+	xminFahrenheit <- xmin*9/5 + 32
+})
+
 #i)
 ftemp <- data.frame(
   Max_temp_Fahr = xmax*9/5 + 32 , 
